@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>search</title>
+	<link rel="stylesheet" type="text/css" href="public/CSS/search.css">
+</head>
+<body>
+	<div class="container">
+		<div class="logo"><h1><img src="public/Image/eglisevivantelogo.png"></h1></div>
+		<div class="tab">
+			<ul id="tablist">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/insert">Insert</a></li>
+                <li><a href="/report">List</a></li>
+                <li class="searchpopup"><a href="/search">Search</a></li>
+				<li><a href="/forum">Forum</a></li>
+			</ul>
+		</div>
+		<h2>Search For Church Members here</h2>
+		<div class="form">
+				<input type="text" name="search" id="search" placeholder="Enter Church Members Name"></br>
+				<button id="btnsearch">Search</button>
+            <form method="post" action="/search/getsearchs">
+				<div id="insidetable">
+					<table border="1" class="table">
+						<thead>
+						<th>No y'irangamuntu</th>
+						<th>Amazina</th>
+						<th>Igitsina</th>
+						<th>Irangamirere</th>
+						<th>Se</th>
+						<th>Nyina</th>
+						<th>Itariki y'amavuko</th>
+						<th>Igihe Yakirijwe</th>
+						<th>Igihe Yabatirijwe</th>
+						<th>Icyo Akora</th>
+						<th>Umunyetorero Kuva</th>
+						<th>Amashuri yize</th>
+						<th>Ishami yize</th>
+						<th>Impano Karemano</th>
+						<th>Telephone</th>
+						<th>Email</th>
+						<th>Akarere</th>
+						<th>Umurenge</th>
+						<th>Akagari</th>
+						<th>Umudugudu</th>
+						<th>Umurimo mw'itorero</th>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+         $('#search').keyup(function() {
+//            console.log('yes',result);
+             var search = $(this).val();
+             if (search.length >= 1) {
+                 $.ajax({
+                     url: '/search/getsearchs',
+                     type: 'post',
+                     dataType: 'json',
+                     contentType: 'application/x-www-form-urlencoded',
+                     data: {search: search},
+                     success: function (data) {
+//                         console.log(response);
+//                         $('#insidetable tbody').html('');
+
+						 for (var i = 0;i < data.length;i++){
+                             $('#insidetable tbody').append('\
+                                 <tr>\
+                                 <td>'+data[i].irangamuntu+'</td>\
+                                 <td>'+data[i].amazina +'</td>\
+                                 <td>'+data[i].igitsina +'</td>\
+                                 <td>'+data[i].irangamirere +'</td>\
+                                 <td>'+data[i].se+'</td>\
+								 <td>'+data[i].nyina +'</td>\
+								 <td>'+data[i].amavuko +'</td>\
+								 <td>'+data[i].yakirijwe +'</td>\
+								 <td>'+data[i].yabatirijwe+'</td>\
+								 <td>'+data[i].akazi +'</td>\
+								 <td>'+data[i].umunyetorero +'</td>\
+								 <td>'+data[i].amashuri +'</td>\
+								 <td>'+data[i].ishami+'</td>\
+								 <td>'+data[i].impano +'</td>\
+								 <td>'+data[i].telephone +'</td>\
+								 <td>'+data[i].email +'</td>\
+								 <td>'+data[i].akarere +'</td>\
+								 <td>'+data[i].umurenge+'</td>\
+								 <td>'+data[i].akagari +'</td>\
+								 <td>'+data[i].umudugudu +'</td>\
+								 <td>'+data[i].umurimo +'</td>\
+								 </tr>\
+                                 ')
+						 }
+
+                     }
+                 })
+                 }
+             else{
+                  $('#insidetable tbody').html('');
+             }
+         });
+//        $('#btnsearch').on('click', function() {
+//             $.ajax({
+//                 url: '/getsearch',
+//                  dataType: 'json',
+//                 // data: {search: text},
+//                 contentType : 'application/JSON',
+//                 success: function(response){
+//					 var tbodyL = $('tbody');
+//					 console.log(response);
+//
+//					 response.tests.forEach(function (test){
+//					     tbodyL.append('\
+//					     <tr>\
+//					     <td>'+test.id+'</td>\
+//					     <td>'+test.name+'</td>\
+//					     <td>'+test.place+'</td>\
+//					     <td>'+test.time+'</td>\
+//					     <tr>\
+//					     ');
+//					 });
+//                 }
+//             })
+//        });
+    });
+</script>
+</html>

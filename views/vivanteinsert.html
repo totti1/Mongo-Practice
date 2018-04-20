@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eglise Vivante</title>
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/public/CSS/new.css">
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper"><h1><img src="public/Image/eglisevivantelogo.png"></h1></div>
+		<div class="tab">
+			<ul id="tablist">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/insert">Insert</a></li>
+				<li><a href="/report">List</a></li>
+				<li class="searchpopup"><a href="/search">Search</a></li>
+				<li><a href="/forum">Forum</a></li>
+			</ul>
+		</div>
+		<div class="form">
+			<form action="/insert/insert" method="post" id="formsubmit">
+				<table align="center" id="table">
+					<tr>
+						<td class="name">No y'irangamuntu:</td>
+						<td><input type="text" name="irangamuntu" class="irangamuntu" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Amazina:</td>
+						<td><input type="text" name="amazina" class="amazina" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Igitsina:</td>
+						<td><input type="radio" name="igitsina" value="Gabo" class="gabo" checked="true"> Gabo</td>
+						<td><input type="radio" name="igitsina" value="Gore" class="gore" checked="true"> Gore</td>
+					</tr>
+					<tr>
+						<td class="name">Irangamirere:</td>
+						<td><input type="text" name="irangamirere" class="irangamirere" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Se:</td>
+						<td><input type="text" name="se" class="se" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Nyina:</td>
+						<td><input type="text" name="nyina" class="nyina" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Itariki y'amavuko:</td>
+						<td><input type="date" name="amavuko" class="amavuko" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Igihe Yakirijwe:</td>
+						<td><input type="date" name="yakirijwe" class="yakirijwe" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Igihe Yabatirijwe:</td>
+						<td><input type="date" name="yabatirijwe" class="yabatirijwe" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Icyo Akora:</td>
+						<td><input type="text" name="akazi" class="akazi" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Umunyetorero Kuva:</td>
+						<td><input type="date" name="umunyetorero" class="umunyetorero" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Amashuri yize:</td>
+						<td><input type="text" name="amashuri" class="amashuri" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Ishami yize:</td>
+						<td><input type="text" name="ishami" class="ishami" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Impano Karemano:</td>
+						<td><input type="text" name="impano" class="impano" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Telephone:</td>
+						<td><input type="number" name="telephone" class="telephone" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Email:</td>
+						<td><input type="mail" name="email" class="email" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Akarere:</td>
+						<td><input type="text" name="akarere" class="akarere" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Umurenge:</td>
+						<td><input type="text" name="umurenge" class="umurenge" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Akagari:</td>
+						<td><input type="text" name="akagari" class="akagari" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Umudugudu:</td>
+						<td><input type="text" name="umudugudu" class="umudugudu" id="textarea"></td>
+					</tr>
+					<tr>
+						<td class="name">Umurimo mw'itorero:</td>
+						<td><input type="text" name="umurimo" class="umurimo" id="textarea"></td>
+					</tr>
+					<tr>
+                        <td><button id="btnsubmit">Submit</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div id="response"></div>
+		<div class="cover"></div>
+	</div>
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btnsubmit").click(function(e) {
+//		    console.log('test');
+//			var form = $('#formsubmit').val();
+			var textarea = $('#textarea').val();
+			if (textarea.length > 0){
+                $.ajax({
+                    url: "/insert",
+                    type: "post",
+//                        dataType: 'json',
+//                        contentType : 'application/x-www-form-urlencoded',
+                    data: {data: textarea},
+                    success: function(result){
+                        console.log('success');
+                            $(this).html("Submitting")
+                            $(this).attr("disabled",false)
+                        alert("your information have been recorded")
+                    }
+
+                });
+            }else{
+                alert('All fields need to be filled');
+                return e.preventDefault();
+			}
+		});
+	});
+</script>
+</html>

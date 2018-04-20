@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eglise vivante</title>
+	<link rel="stylesheet" type="text/css" href="public/CSS/home.css">
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper"><h1><img src="public/Image/eglisevivantelogo.png"></h1></div>
+		<div class="tab">
+			<ul id="tablist">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/insert">Insert</a></li>
+                <li><a href="/report">List</a></li>
+                <li class="searchpopup"><a href="/search">Search</a></li>
+				<li><a href="/forum">Forum</a></li>
+			</ul>
+		</div>
+		<div class="image">
+			<ul class="slide">
+				<li><img src="public/Image/App.jpg" title="Our App"></li>
+				<li><img src="public/Image/churchpeople.jpg" title="Church People"></li>
+				<li><img src="public/Image/worshipteam.jpg"></li>
+			</ul>
+		</div>
+		<div class="content">
+			<h1>Welcome</h1>
+			<p>At the Eglise Vivante we believe that Gods Word is taught and expressed better through our actions and our lives; so we encourage all to let their faith shine through their relationships, their work, and their finances!</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="responsiveslides.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+    $(".slide").responsiveSlides({
+				auto: true,
+				speed: 500,
+				timeout: 4000,
+				pager: false,
+				nav: false,
+				random: false,
+				pause: false,
+				pauseControls: true,
+				prevText: "Previous",
+				nextText: "Next",
+			});
+	});
+</script>
+</html>

@@ -1,0 +1,96 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    background-color: #fff;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.tab{
+    width: 100%;
+    height: 80px;
+    background-color: #1C2833;
+    box-shadow: 0px 2px 4px gray;
+}
+#tablist{
+    width: 1000px;
+    height: 80px;
+    float: right;
+}
+#tablist>li{
+    width: 200px;
+    list-style: none;
+    float: left;
+}
+li>a{
+    display: block;
+    color: white;
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    text-decoration: none;
+    line-height: 80px;
+}
+li>a:hover{
+    background-color: #BFC9CA;
+}
+.text{
+    margin: auto;
+    width: auto;
+    /*padding: 10px;*/
+}
+.txt{
+    margin-top: 2em;
+    width: 40em;
+    height: 10em;
+    padding: 12px 20px;
+    /*margin: 8px 0;*/
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "Lucida Fax";
+    font-size: 15px;
+    margin-left: 12em;
+}
+#submit{
+    border: solid 1px;
+    border-radius: 50px;
+    font-size: 15px;
+    /*font-style: #fff;*/
+    width: 9em;
+    height: 2em;
+    background-color: #1C2833;
+    color: rgb(253, 254, 254);
+    /*margin-top: 50px;*/
+}
+#chat{
+    background-color: #F2F3F4;
+    margin-top: 3em;
+    width: 50em;
+    /*height: 40em;*/
+    margin-left: 5em;
+}
+#user{
+    width: 40em;
+    padding: 12px 20px;
+    /*margin: 8px 0;*/
+    margin-top: 2em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-left: 12em;
+    font-family: "Lucida Fax";
+    font-size: 15px;
+}
+p{
+    font-family: "Lucida Fax";
+    font-size: 20px;
+}
+p>strong{
+    color: cadetblue;
+}
