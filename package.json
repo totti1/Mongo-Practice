@@ -16,7 +16,7 @@
     "express": "^4.16.2",
     "fs": "0.0.1-security",
     "http": "0.0.0",
-    "mongodb": "^2.2.33",
+    "mongodb": "^3.6.1",
     "nodemon": "^1.13.3",
     "socket.io": "^2.0.4",
     "swig": "^1.4.2"
